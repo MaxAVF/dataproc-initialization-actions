@@ -20,7 +20,7 @@ readonly INIT_ACTIONS_BRANCH="$(/usr/share/google/get_metadata_value attributes/
 readonly JUPYTER_CONDA_CHANNELS="$(/usr/share/google/get_metadata_value attributes/JUPYTER_CONDA_CHANNELS)"
 
 # Colon-separated list of conda packages to install, for example 'numpy:pandas'
-readonly JUPYTER_CONDA_PACKAGES="$(/usr/share/google/get_metadata_value attributes/JUPYTER_CONDA_PACKAGES)"
+readonly JUPYTER_CONDA_PACKAGES="pandas:numpy:jupyterlab"
 
 echo "Cloning fresh dataproc-initialization-actions from repo ${INIT_ACTIONS_REPO} and branch ${INIT_ACTIONS_BRANCH}..."
 git clone -b "${INIT_ACTIONS_BRANCH}" --single-branch "${INIT_ACTIONS_REPO}"
