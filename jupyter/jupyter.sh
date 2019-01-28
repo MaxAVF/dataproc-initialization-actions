@@ -20,7 +20,7 @@ readonly INIT_ACTIONS_BRANCH="$(/usr/share/google/get_metadata_value attributes/
 readonly JUPYTER_CONDA_CHANNELS="$(/usr/share/google/get_metadata_value attributes/JUPYTER_CONDA_CHANNELS)"
 
 # Colon-separated list of conda packages to install, for example 'numpy:pandas'
-readonly JUPYTER_CONDA_PACKAGES="pandas:numpy:jupyterlab"
+readonly JUPYTER_CONDA_PACKAGES="$(/usr/share/google/get_metadata_value attributes/JUPYTER_CONDA_PACKAGES"
 
 echo "Cloning fresh dataproc-initialization-actions from repo ${INIT_ACTIONS_REPO} and branch ${INIT_ACTIONS_BRANCH}..."
 git clone -b "${INIT_ACTIONS_BRANCH}" --single-branch "${INIT_ACTIONS_REPO}"
@@ -42,7 +42,7 @@ fi
 # than the one already installed. See issue #300 for more information.
 PYTHON="$(ls /opt/conda/bin/python || which python)"
 PYTHON_VERSION="$(${PYTHON} --version 2>&1 | cut -d ' ' -f 2)"
-conda install jupyter matplotlib "python==${PYTHON_VERSION}"
+conda install jupyter jupyterlab matplotlib "python==${PYTHON_VERSION}"
 
 conda install 'testpath<0.4'
 
