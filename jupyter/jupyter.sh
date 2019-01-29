@@ -64,7 +64,7 @@ if [ -n "${JUPYTER_CONDA_PACKAGES}" ]; then
 fi
 
 # For storing notebooks on GCS. Pin version to make this script hermetic.
-pip install jgscm==0.1.7
+pip install jgscm==0.1.9
 
 if [[ "${ROLE}" == 'Master' ]]; then
   ./dataproc-initialization-actions/jupyter/internal/setup-jupyter-kernel.sh
